@@ -38,7 +38,8 @@ PUBLIC Variant compile(String code)
 	if (elf_data.empty()) {
 		last_error = String(compiler.get_error());
 		print("ERROR: Compilation failed: ", last_error);
-		return PackedByteArray(std::vector<uint8_t>{});
+		return last_error;
+		// return PackedByteArray(std::vector<uint8_t>{});
 	}
 
 	return PackedByteArray(elf_data);
